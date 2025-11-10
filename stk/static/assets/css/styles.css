@@ -1,0 +1,26 @@
+body {
+    background: #f1f1f1;
+    font-family: 'Arial', serif;
+}
+.payment-container {
+    max-width: 420px;
+    margin: 70px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+.btn-mpesa {
+    background: #34A853;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+}
+.btn-mpesa:hover {
+    background: #2e8d45
+}
+.mpesa-logo {
+    width: 120px;
+    display: block;
+    margin: 0 auto 15px auto;
+}

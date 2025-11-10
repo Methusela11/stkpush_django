@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPesa Payment</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+</head>
+
+<body>
+
+    <div class="payment-container">
+        <img src="{% static 'assets/img/mpesa-t.png' %}" class="mpesa-logo">
+
+        <h4 class="text-center mb-3">Enter MPesa Number</h4>
+
+        <form method="POST" action="/process-payment/">
+            {% csrf_token %}
+
+            <label class="form-label">Safaricom Phone Number</label>
+            <input
+                type="text"
+                name="phone"
+                class="form-control mb-3"
+                placeholder="07XXXXXXXX"
+                required
+            >
+
+            <button type="submit" class="btn btn-mpesa w-100">
+                Get MPesa Prompt
+            </button>
+        </form>
+
+        <p class="text-center mt-3" style="font-size:14px;color:gray;">
+            You will receive a Safaricom MPesa STK push prompt on your phone.
+            Enter your PIN to complete the payment.
+        </p>
+    </div>
+
+</body>
+</html>
