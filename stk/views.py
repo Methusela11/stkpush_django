@@ -7,8 +7,27 @@ import base64
 import requests
 import json
 from .models import MpesaPayment
+from django.http import HttpResponse
+from .sms_sender import send_sms_message
 
-# Create your views here.
+def message_page(request):
+    return render(request, "message.html")
+
+def send_sms(request):
+    if request.method == "POST":
+        phone = request.POST.get("phone")
+        message = request.POST.get("message")
+
+        success = send_sms_message(phone, message)
+
+        if success:
+            return HttpResponse("Message sent successfully!")
+        else:
+            return HttpResponse("Failed to send message.")
+
+    return HttpResponse("Invalid request")
+
+
 def home(request):
     return render(request, 'index.html')
 
