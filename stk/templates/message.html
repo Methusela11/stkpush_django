@@ -16,7 +16,7 @@
 
   <div class="card shadow-sm p-4">
     <img src="/mnt/data/7ffe5a19-0118-4a94-95a3-78c65a9488b1.png" alt="project-structure" class="mpesa-logo">
-    <h5 class="text-center mb-3">Send confirmation SMS</h5>
+    <h5 class="text-center mb-3">Send</h5>
 
     <form method="POST" action="/send-sms/">
       {% csrf_token %}
@@ -33,7 +33,7 @@
           title="Enter a valid Safaricom number e.g. 0712345678 or 254712345678"
           required
         />
-        <div class="form-text">We will send: "Your confirmation has reached" to the number above.</div>
+        <div class="form-text">You will receive a confirmation message.</div>
       </div>
 
       <div class="d-grid gap-2">
