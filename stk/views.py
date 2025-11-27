@@ -127,7 +127,7 @@ def process_payment(request):
             "PartyB": settings.MPESA_SHORTCODE,
             "PhoneNumber": formatted_phone,
             "CallBackURL": settings.MPESA_CALLBACK_URL,
-            "AccountReference": "Payment",
+            "AccountReference": "RMEKSGAMER",
             "TransactionDesc": "Payment Request"
         }
 
