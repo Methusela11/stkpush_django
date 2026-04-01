@@ -6,6 +6,7 @@ urlpatterns = [
     path("process-payment/", views.process_payment, name="process_payment"),
     path("mpesa/callback/", views.mpesa_callback, name="mpesa_callback"),
     path("message/", views.message_page, name="message"),
+    path("mpesa/", views.message_page, name="message"),
     path("send-sms/", views.send_sms, name="send_sms"),
 
 ]

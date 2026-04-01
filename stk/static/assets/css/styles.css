@@ -32,3 +32,29 @@ body {
     display: block;
     margin: 0 auto 15px auto;
 }
+
+.pageBtn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #2ecc71, #27ae60); /* green gradient */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
+}
+
+/* Hover effect */
+.pageBtn:hover {
+    background: linear-gradient(135deg, #27ae60, #1e8449);
+    box-shadow: 0 6px 14px rgba(30, 132, 73, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Active (click) effect */
+.pageBtn:active {
+    transform: scale(0.97);
+    box-shadow: 0 3px 8px rgba(30, 132, 73, 0.3);
+}

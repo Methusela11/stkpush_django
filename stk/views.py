@@ -7,14 +7,11 @@ import base64
 import requests
 import json
 from .models import MpesaPayment
-from django.http import HttpResponse
-from .sms_sender import send_sms_message
+import requests
+from django.shortcuts import render
 
 def message_page(request):
     return render(request, "message.html")
-
-import requests
-from django.shortcuts import render
 
 TERMI_API_KEY = "TLSptHuXCudyZzoZOdOqJhAAwBsqOvBVreYrleSTTkyLpAmNnUUTUfJksZetQI"  # Use live API key only
 TERMI_SENDER_ID = "Termii"     # or 'Termii' if not approved yet
@@ -79,9 +76,6 @@ def get_access_token():
     return json_response['access_token']
 
 
-# -----------------------------------------
-# Convert phone number to MPesa format
-# -----------------------------------------
 def format_phone_number(phone):
     phone = phone.replace(" ", "").replace("+", "")
 
@@ -93,10 +87,6 @@ def format_phone_number(phone):
 
     return None   # invalid number
 
-
-# -----------------------------------------
-# Process Payment (STK Push)
-# -----------------------------------------
 def process_payment(request):
 
     if request.method == "POST":
