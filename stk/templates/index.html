@@ -12,9 +12,6 @@
 
 <body>
     {% csrf_token %}
-<div>
-    <a href="{% url 'message' %}" class="pageBtn">Go to Messeages</a>
-</div>
     <div class="payment-container">
         <img src="{% static 'assets/img/mpesa/mpesa-t.png' %}" class="mpesa-logo">
 
@@ -40,6 +37,9 @@
             You will receive an MPesa STK push prompt on your phone.
             Enter your PIN to complete the payment.
         </p>
+        <div>
+            <a href="{% url 'message' %}" class="pageBtn">Go to Messeages</a>
+        </div>
     </div>
 
 </body>

@@ -13,51 +13,6 @@ from django.shortcuts import render
 def message_page(request):
     return render(request, "message.html")
 
-TERMI_API_KEY = "TLSptHuXCudyZzoZOdOqJhAAwBsqOvBVreYrleSTTkyLpAmNnUUTUfJksZetQI"  # Use live API key only
-TERMI_SENDER_ID = "Termii"     # or 'Termii' if not approved yet
-
-TERMI_URL = "https://api.ng.termii.com/api/sms/send"
-
-def send_sms(request):
-    context = {}
-
-    if request.method == "POST":
-        phone = request.POST.get("phone")
-
-        # Format Kenyan number to +2547XXXXXXX
-        if phone.startswith("0"):
-            phone = "+254" + phone[1:]
-        elif phone.startswith("254"):
-            phone = "+" + phone
-        elif not phone.startswith("+254"):
-            context["error"] = "Phone must be Kenyan format."
-            return render(request, "message.html", context)
-
-        payload = {
-            "api_key": TERMI_API_KEY,
-            "to": phone,
-            "from": TERMI_SENDER_ID,
-            "sms": "Your confirmation has reached.",
-            "type": "plain",
-            "channel": "generic"
-        }
-
-        try:
-            response = requests.post(TERMI_URL, json=payload)
-            data = response.json()
-
-            if data.get("code") == "ok":
-                context["message"] = f"SMS sent successfully to {phone}"
-            else:
-                context["error"] = f"Failed: {data}"
-
-        except Exception as e:
-            context["error"] = f"Error sending SMS: {str(e)}"
-
-    return render(request, "message.html", context)
-
-
-
 def home(request):
     return render(request, 'index.html')
 
@@ -139,10 +94,6 @@ def process_payment(request):
             "response": data
         })
 
-
-# -----------------------------------------
-# Callback URL
-# -----------------------------------------
 @csrf_exempt
 @csrf_exempt
 def mpesa_callback(request):

@@ -12,15 +12,12 @@
 
 <body>
     {% csrf_token %}
-<div>
-    <a href="{% url 'home' %}" class="pageBtn">Go to M-Pesa</a>
-</div>
     <div class="payment-container">
         <img src="{% static 'assets/img/messages/message.png' %}" class="message-logo">
 
         <h4 class="text-center mb-3">Enter Phone Number</h4>
 
-        <form method="POST" action="/process-payment/">
+        <form method="POST" action="/process-message/">
             {% csrf_token %}
 
             <input
@@ -36,6 +33,10 @@
             </button>
         </form>
 
+        <p class="text-center mt-3" style="font-size:14px;color:gray;"></p>
+        <div>
+            <a href="{% url 'home' %}" class="pageBtn">Go to M-Pesa</a>
+        </div>
     </div>
 
 </body>
